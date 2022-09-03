@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Delete Post{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+{% if user.is_authenticated %}
+<h1>Delete Post</h1>
+<br/><br/>
+<h3>Delete {{ post.title }}</h3>
+
+<br/>
+<div class="form-group">
+
+<form method="POST"
+{% csrf_token %}
+
+
+
+
+<strong>Are you sure?!</strong><br/>
+<button class="btn btn-success">Delete</button>
+
+
+</form>
+</div>
+{% else %}
+This is not your Post
+{% endif %}
+{% else %}
+
+This page is only for members!
+{% endif %}
+
+{% endblock %}
