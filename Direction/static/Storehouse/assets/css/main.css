@@ -1144,10 +1144,12 @@ input[type=text], input[type=email], textarea {
   background: rgba(var(--color-black-rgb), 0.9);
   font-size: 16px;
   color: rgba(var(--color-white-rgb), 0.7);
+  margin:10px;
 }
 
 .footer .footer-content {
   padding: 60px 0;
+  margin: 10px;
 }
 
 .footer a.footer-link-more {
