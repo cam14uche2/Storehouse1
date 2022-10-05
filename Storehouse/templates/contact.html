@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'Storehouse/assets/css/main.css' %}">
+
+
+  {% block content %}
+
+
+<style>
+
+input[type=text], input[type=email], textarea {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+}
+
+</style>
+  <main id="main">
+    <section id="contact" class="contact mb-5">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-12 text-center mb-5">
+            <h1 class="page-title">Contact us</h1>
+          </div>
+        </div>
+
+        <div class="row gy-4">
+
+          <div class="col-md-4">
+            <div class="info-item">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Address</h3>
+              <address>NO 4 EAST/WEST ROAD PORT HARCOURT, RIVERS STATE, NIGERIA</address>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-md-4">
+            <div class="info-item info-item-borders">
+              <i class="bi bi-phone"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+2348059065955">+2348059065955</a></p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-md-4">
+            <div class="info-item">
+              <i class="bi bi-envelope"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:cam14uche@gmail.com">cam14uche@gmail.com</a></p>
+            </div>
+          </div><!-- End Info Item -->
+
+        </div>
+        {% if name %}
+        <center>
+          <h2>Your message has been sent. Thank you!</h2>
+          </center>
+        {% else %}  
+
+        <form action="{% url 'contact' %}" method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="yTF5g7ceTgkwsOimKxZpuV10DG4a1TWFwQ60pneu047lPvu6kTAlNYPfYEC9G8jq">
+    {% csrf_token %}
+    <tr>
+        <th>
+            <label for="id_name">Name:</label>
+        </th>
+        <td>
+            <input type="text" name="name" maxlength="255" required id="id_subject">
+        </td>
+        <th>
+            <label for="id_email">Email:</label>
+        </th>
+        <td>
+            <input type="email" name="email" maxlength="254" required id="id_email">
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <label for="id_subject">Subject:</label>
+        </th>
+        <td>
+            <input type="text" name="subject" maxlength="255" required id="id_subject">
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <label for="id_message">Message:</label>
+        </th>
+        <td>
+            <textarea name="message" cols="40" rows="10" required id="id_message"></textarea>
+        </td>
+    </tr>
+    <input type="submit" value="Submit">
+</form>
+          
+        </div>
+        {% endif %}
+        <!-- End Contact Form -->
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  {% endblock %}

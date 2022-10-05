@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <main id="main">
+
+    <!-- ======= Hero Slider Section ======= -->
+    <section id="hero-slider" class="hero-slider">
+      <div class="container-md" data-aos="fade-in">
+        <div class="row">
+          <div class="col-12">
+            <div class="swiper sliderFeaturedPosts">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('{% static 'Storehouse/assets/img/post-slide-1.jpg' %}');">
+                    <div class="img-bg-inner">
+                      <h2>FOOTNOTE ON WOMAN</h2>
+                      <p>The word WOMAN does not refer to FEMALE and the word MAN doesn’t refer to MALE from the origin of creation, as the human society of men have interpreted and adopted. WOMAN is a significance of submission whether it be the male, or the female. Submission in itself can only be done to a higher authority than the existing one. Man cannot submit to man therefore, without God, there is no submission and thereby no WOMAN. If God will not be a man living among men as God, how will men get to know who the higher authority is PRACTICALLY, and to learn how to submit to him as the higher authority in order to know and have what he called women, especially, when they don’t even know the concept; how? The world must be a WOMEN’S world before the Spirit of creation will let go his grip on violence against humanity to let things work perfectly peaceful. But how do you achieve a women’s world if you won’t accept the spiritual concept which remains the machinery that produces the WOMAN out of humanity? It will stay with the word “impossible”, think about it!</p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="swiper-slide">
+                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('{% static 'Storehouse/assets/img/post-slide-2.jpg' %}');">
+                    <div class="img-bg-inner">
+                      <h2>To be HELP-LESS and to be WITHOUT HELP</h2>
+                      <p>“To be helpless is to act like you are always able to help yourself, (which makes people to see you as capable of saving them), and when the deciding factors show up, everyone is in frustration, including you; but to be without help is to have what it takes to make you look like you can help yourself, but when you are confronted with a help demanding situation, you are seen to deny yourself of that deceitful label in the way and manner you render the service because, you already know that you are still without help; still seeking real help” (hidden help is within you).</p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="swiper-slide">
+                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('{% static 'Storehouse/assets/img/post-slide-3.jpg' %}');">
+                    <div class="img-bg-inner">
+                      <h2>THE CASE OF CHOICE</h2>
+                      <p>MAJORITY CARRIES THE VOTE; so they say. But if God’s ways are different from those of men then, with God, majority don’t carry the vote when he is the one involved.</p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="swiper-slide">
+                  <a href="#" class="img-bg d-flex align-items-end" style="background-image: url('{% static 'Storehouse/assets/img/post-slide-4.jpg' %}');">
+                    <div class="img-bg-inner">
+                      <h2>TAKE THIS TO HEART</h2>
+                      <p>If you agree that you were made in the image of God when God had
+not appeared to any of us to show us his image, I don’t think it is
+normal for the same you to ague or deny God when he eventually
+appears to tell us he is God when he looks like you. How can you
+explain your claim of being made in the image of God if you can deny
+him for looking like a man?</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="custom-swiper-button-next">
+                <span class="bi-chevron-right"></span>
+              </div>
+              <div class="custom-swiper-button-prev">
+                <span class="bi-chevron-left"></span>
+              </div>
+
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      
+    <main id="main">
+    <section>
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-12 text-center mb-5">
+            <h1 class="page-title">POST</h1>
+          </div>
+        </div>
+<div class="row mb-5"> 
+
+          
+<br/>
+
+
+{% for post in object_list %}
+<section class="category-section">
+      <div class="container" data-aos="fade-up">
+
+      <div class="d-md-flex post-entry-2 half">
+            <a href="#" class="me-4 thumbnail">
+              <img src="{% static 'Storehouse/assets/img/okay.jpg' %}" alt="" class="img-fluid">
+            </a>
+    </div> 
+
+      
+          
+              <h2 class="mb-4 display-4"><a href="{% url 'writeup_detail' post.pk %}"> {{ post.title }}</a></h2>
+    
+    <!---<li><a href="{% url 'writeup_detail' post.pk %}"> {{ post.title }}</a>--> - {{ post.category }}-
+      {{ post.author }} -{{ post.post_date }}
+      {% if user.is_authenticated %}
+      {% if user.id == post.author.id %}
+      <a href="{% url 'update_post' post.pk %}">Edit</a> <br/>
+    <br/>
+    <a href="{% url 'delete_post' post.pk %}">Delete</a>
+    {% endif %}
+    {% endif %}
+      <br/>
+      <br/>
+    {{ post.Snippet }}
+
+          
+  
+    <hr>
+    </li>
+{% endfor %}
+</ui>
+        </div>
+    </div>
+</div>
+    </section><!-- End Hero Slider Section -->
+
+</main><!-- End #main -->
+
+</body>
+</html>
+
+{% endblock %}
+
+  
