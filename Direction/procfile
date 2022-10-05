@@ -1,1 +1,1 @@
-web: gunicorn Storehouse.wsgi
+web: gunicorn Direction.wsgi
